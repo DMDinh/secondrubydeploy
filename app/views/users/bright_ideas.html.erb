@@ -1,0 +1,56 @@
+<style media="screen">
+  .posts{
+    border: 1px solid black;
+    padding-left: 20px;
+    width: 700px;
+    height: 600px;
+    overflow: scroll;
+  }
+</style>
+
+
+
+<div class="container">
+  <div class="messages">
+    <h2>Welcome <a href="/users/<%= @user.id %>"><%= @user.fname.capitalize%> <%= @user.lname.capitalize%></a>!</h2>
+    <p><a href="/edit/<%=@user.id%>">Edit Your Info</a>   |  <a href="/logout">Logout</a> </p>
+    <h3>Post a Bright Idea Below!</h3>
+    <form class="" action="/post_comment/<%=@user.id%>" method="post">
+      <br>
+      <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+      <textarea name="comment" rows="4" cols="80" placeholder="Post something witty here"></textarea>
+
+      <input type="submit" value="Idea!">
+      <br>
+    </form>
+    <br>
+
+  </div>
+
+  <div class="posts">
+    <%@posts.each do |post| %>
+    <br>
+    <h4><a href="/users/<%=post.user.id%>"><%=post.user.fname.capitalize%></a> says: </h4>
+
+    <div class="comment">
+      <%=post.comment%>
+    </div>
+      <p><% if @uposts.exists?(:id => post.id) == false %>
+      <a href="/like/<%= post.id %>">Like</a>
+        <% end %>
+
+
+      <% if @uposts.exists?(:id => post.id) == true %>
+      <a href="/unlike/<%= post.id %>">Unlike</a>
+        <% end %>
+
+      | <a href="/bright_ideas/<%= post.id %>"><%=post.likes.count%> People</a> like this |
+      <% if @user.id == post.user_id %>
+        <a href="/remove/<%= post.id %>">Delete</a>
+      <% end %>
+      </p>
+    <% end %>
+  </div>
+
+
+</div>

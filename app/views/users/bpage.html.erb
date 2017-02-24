@@ -1,0 +1,39 @@
+<div class="container">
+  <br>
+  <a href="/bright_ideas">Bright Ideas</a> | <a href="/logout">Logout</a>
+<br>
+  <div class="post">
+    <h3><a href="/users/<%= @post.user.id %>"><%= @post.user.fname.capitalize %></a> says:</h3>
+    <div class="post_message">
+      <%= @post.comment %>
+    </div>
+
+
+  </div>
+
+<div class="others">
+
+  <div class="table1">
+        <h3 style="border-bottom: 1px solid black;">People Who Liked This Post</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @others.each do |other| %>
+            <tr>
+              <td> <a href="/users/<%= other.user.id %>"> <%= other.user.fname.capitalize %> <%= other.user.lname.capitalize %></a></td</td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+
+
+</div>
+
+
+</div>

@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: ubuntu
+  # username: ubuntu
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -25,7 +25,7 @@ default: &default
 development:
   <<: *default
   database: black_belt_development
-  username: ubuntu
+  # username: ubuntu
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -60,7 +60,7 @@ development:
 test:
   <<: *default
   database: black_belt_test
-  username: ubuntu
+  # username: ubuntu
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: black_belt_production
-  username: ubuntu
+  # username: ubuntu
   password: <%= ENV['BLACK_BELT_DATABASE_PASSWORD'] %>

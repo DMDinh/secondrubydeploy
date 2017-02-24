@@ -1,0 +1,14 @@
+<div class="container">
+  <br>
+  <div class="info" style="border-bottom: 1px solid black;">
+    <h4>First Name: <%= @user.fname.capitalize %></h4>
+    <h4>Last Name: <%= @user.lname.capitalize %></h4>
+    <h4>Email: <%= @user.email %></h4>
+    <a href="/bright_ideas">Bright Ideas</a>  |  <a href="/logout">Logout</a>
+  </div>
+  <br>
+  <div class="posts">
+    <h4>Total Number of Posts: <%= @uposts.count %></h4>
+    <h4>Total Number of Likes: <%= @ulikes.count %> </h4>
+  </div>
+</div>

@@ -1,2 +1,39 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+  <br>
+  <div class="info">
+    <form action="/update" method="post">
+      <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+      <input type="hidden" name="id" value="<%=@user.id%>">
+      <h2>Edit Your Profile</h2>
+      <a href="/bright_ideas">Bright Ideas</a>
+      <br>
+      <div class="form-group">
+        <label for="fname">First Name:</label>
+        <input type="text" class="form-control" id="fname" name= "fname" value=<%=@user.fname%>
+      </div>
+      <div class="form-group">
+        <label for="lname">Last Name:</label>
+        <input type="text" class="form-control" id="lname" name= "lname" value=<%=@user.lname%>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name= "email" value=<%=@user.email%>
+      </div>
+
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" name= "password" value=<%=@user.password%>
+      </div>
+      <div class="form-group">
+        <label for="cpwd">Confirm Password:</label>
+        <input type="password" class="form-control" id="cpwd" name= "password_confirmation" value=<%=@user.password_confirmation%>
+      </div>
+
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+
+
+
+
+</div>
